@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 .obsidian/
 .claude/settings.local.json
+_site/

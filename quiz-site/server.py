@@ -55,6 +55,14 @@ def collect_files(config):
     return files, errors
 
 
+def build_payload():
+    """The JSON body served at /api/sets (also written to sets.json by build_static.py)."""
+    config = load_config()
+    files, errors = collect_files(config)
+    return {"config": {k: v for k, v in config.items() if k != "sources"},
+            "files": files, "errors": errors}
+
+
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=ROOT, **kwargs)
@@ -69,11 +77,7 @@ class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path.split("?")[0] == "/api/sets":
             try:
-                config = load_config()
-                files, errors = collect_files(config)
-                body = {"config": {k: v for k, v in config.items() if k != "sources"},
-                        "files": files, "errors": errors}
-                status = 200
+                body, status = build_payload(), 200
             except Exception as e:  # surface config mistakes in the UI
                 body, status = {"files": [], "errors": [f"Config error: {e}"]}, 500
             data = json.dumps(body).encode("utf-8")

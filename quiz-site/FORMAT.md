@@ -7,6 +7,12 @@ python3 server.py --open
 ```
 Or double-click `Start Quiz.command` in Finder. The site runs at http://localhost:8765 (Python 3 only, nothing to install). Progress, paused exams and score history are saved in your browser's local storage.
 
+## Hosted copy (GitHub Pages)
+https://aimanamri.github.io/claude-dev-exam-prep/ is rebuilt by `.github/workflows/pages.yml` on every push to `main`. The workflow runs `python3 quiz-site/build_static.py`, which copies the site and bundles every markdown source into `sets.json` (the app reads that file when `server.py` isn't running). To check a static build locally:
+```bash
+python3 quiz-site/build_static.py --out /tmp/site && python3 -m http.server 8766 -d /tmp/site
+```
+
 ## Where questions come from
 `quiz.config.json` lists the sources:
 - `../03-practice-exams.md`: Sets A–D (unchanged; module ranges and timings are set in the config)

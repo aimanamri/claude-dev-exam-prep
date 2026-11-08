@@ -66,15 +66,23 @@
   const history = () => store.get(LS.history, []);
   const persist = () => { if (attempt) { store.set(LS.attempt, attempt); lastSave = Date.now(); } };
 
+  let DATA_SOURCE = "api/sets";
   // ---------- loading ----------
   async function load() {
-    let j;
-    try {
-      const r = await fetch("/api/sets", { cache: "no-store" });
-      j = await r.json();
-    } catch (e) {
-      $app.innerHTML = `<div class="page"><div class="card error"><h2>Can't reach the local server</h2>
-        <p>Start it from the <code>quiz-site</code> folder, then reload:</p><pre><code>python3 server.py --open</code></pre></div></div>`;
+    // Live markdown from server.py when running locally; prebuilt sets.json on static hosting (GitHub Pages).
+    let j = null;
+    for (const url of ["api/sets", "sets.json"]) {
+      try {
+        const r = await fetch(url, { cache: "no-store" });
+        if (!r.ok) continue;
+        j = await r.json();
+        DATA_SOURCE = url;
+        break;
+      } catch (e) { /* try the next source */ }
+    }
+    if (!j) {
+      $app.innerHTML = `<div class="page"><div class="card error"><h2>Can't load the question sets</h2>
+        <p>Run the local server from the <code>quiz-site</code> folder, then reload:</p><pre><code>python3 server.py --open</code></pre></div></div>`;
       return;
     }
     const sets = [];
@@ -271,7 +279,7 @@
           </tbody></table></div><div class="row end"><button class="btn small ghost" data-action="clear-history">Clear history</button></div></section>` : ""}
 
         <section class="card muted small add-help">
-          <b>Add more sets:</b> save a Claude-generated markdown file into <code>quiz-site/sets/</code> (format in <code>quiz-site/FORMAT.md</code>), then press <b>Reload sets</b>. Questions without an answer in the key are skipped and listed on the card.
+          <b>Add more sets:</b> save a Claude-generated markdown file into <code>quiz-site/sets/</code> (format in <code>quiz-site/FORMAT.md</code>), then ${DATA_SOURCE === "sets.json" ? "push it to GitHub; this hosted copy rebuilds automatically within a minute or two" : "press <b>Reload sets</b>"}. Questions without an answer in the key are skipped and listed on the card.
           <br><b>Keys during an exam:</b> A–F or 1–6 pick · ←/→ previous/next · F flag · P pause · Enter check (practice).
         </section>
       </div>`;

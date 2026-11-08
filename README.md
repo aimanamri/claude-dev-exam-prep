@@ -15,6 +15,9 @@ Study notes, practice exams and a local timed exam site for the **Claude Certifi
 The notes are Obsidian-flavoured markdown (`[[wikilinks]]`), but they read fine anywhere.
 
 ## Practice exam site
+**Live:** https://aimanamri.github.io/claude-dev-exam-prep/ (rebuilt by GitHub Actions on every push to `main`).
+
+To run it locally instead:
 ```bash
 cd quiz-site
 python3 server.py --open      # http://localhost:8765, Python 3 only, no dependencies
@@ -25,7 +28,7 @@ python3 server.py --open      # http://localhost:8765, Python 3 only, no depende
 - Score report with per-module breakdown, reasoning for every answer, and "retry missed"
 - Progress and history are kept in your browser's localStorage
 
-Add a set by dropping a markdown file into `quiz-site/sets/` and pressing **Reload sets**. See [`quiz-site/FORMAT.md`](quiz-site/FORMAT.md) for the format and a prompt that asks Claude to generate one.
+Add a set by dropping a markdown file into `quiz-site/sets/`: press **Reload sets** locally, or push to `main` to update the live site. See [`quiz-site/FORMAT.md`](quiz-site/FORMAT.md) for the format and a prompt that asks Claude to generate one.
 
 ## Disclaimer
 Unofficial study material, written from the course modules for personal exam preparation. Confirm version-specific details (model IDs, prices, limits, beta headers) at platform.claude.com before relying on them.
