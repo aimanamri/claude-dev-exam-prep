@@ -1,0 +1,28 @@
+{
+  "examName": "Claude Certified Developer – Foundations (CCDV-F)",
+  "passPercent": 80,
+  "defaultSecondsPerQuestion": 75,
+  "randomMock": { "questions": 40, "minutes": 60 },
+  "sources": [
+    {
+      "path": "../03-practice-exams.md",
+      "sets": {
+        "A": { "title": "Set A · Standard", "secondsPerQuestion": 60,
+               "modules": { "M2": "1-11", "M3": "12-19", "M4": "20-25", "M5": "26-30", "M1": "31-34" } },
+        "B": { "title": "Set B · Standard", "secondsPerQuestion": 60,
+               "modules": { "M2": "1-11", "M3": "12-19", "M4": "20-25", "M5": "26-30", "M1": "31-34" } },
+        "C": { "title": "Set C · Advanced", "secondsPerQuestion": 90,
+               "modules": { "M1": "1-4", "M2": "5-13", "M3": "14-20", "M4": "21-26", "M5": "27-30" } },
+        "D": { "title": "Set D · Advanced", "secondsPerQuestion": 90,
+               "modules": { "M1": "1-4", "M2": "5-13", "M3": "14-20", "M4": "21-26", "M5": "27-30" } }
+      }
+    },
+    {
+      "path": "../00-mso-foundations-notes.md",
+      "sets": {
+        "F": { "title": "M1 Mini Set", "secondsPerQuestion": 60, "modules": { "M1": "1-10" } }
+      }
+    },
+    { "path": "sets" }
+  ]
+}
