@@ -69,7 +69,7 @@ Read claude-dev-exam-prep/00-mso-foundations-notes.md and 01-full-study-notes.md
 Write a new Pearson-style practice set in that exact format as
 claude-dev-exam-prep/quiz-site/sets/set-<NEXT LETTER>.md:
 - 40 questions, minutes: 60, IDs <LETTER>1–<LETTER>40 (letter not used by any existing set:
-  A, B, C, D, E, F, G, H and MR are taken)
+  A–J and MR are taken)
 - module split: M1 6, M2 12, M3 9, M4 8, M5 5, under "## M<n> ..." headings
 - 10 items tagged #core that re-test these facts from a new angle: context-window edge
   behaviors; sampling params → 400 / temp 0 not guaranteed; tool_use/tool_result pairing;

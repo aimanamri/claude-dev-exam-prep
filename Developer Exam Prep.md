@@ -9,7 +9,7 @@ Index for the **Claude Certified Developer – Foundations** study pack. Back to
 | 2 | [[claude-dev-exam-prep/01-full-study-notes\|Full study notes (M2–M5)]] | Every section: must remember, syntax, debug priority, trade-offs and fixes |
 | 3 | [[claude-dev-exam-prep/02-commute-recall\|Commute recall cards]] | Short cards and number/header flash lists |
 | 4 | [[claude-dev-exam-prep/03-practice-exams\|Practice exams]] | Sets A/B (34 each) and C/D advanced (30 each), with answers |
-| 5 | [[claude-dev-exam-prep/quiz-site/FORMAT\|Practice exam site]] | Timed local site for every set (A–H, M1 mini set, Must-Remember drill). Run `python3 server.py --open` in `quiz-site/` |
+| 5 | [[claude-dev-exam-prep/quiz-site/FORMAT\|Practice exam site]] | Timed local site for every set (A–J, M1 mini set, Must-Remember drill). Run `python3 server.py --open` in `quiz-site/` |
 
 ## Project walkthrough: IT helpdesk assistant
 | # | Note |

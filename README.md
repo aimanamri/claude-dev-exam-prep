@@ -19,7 +19,7 @@ The notes are Obsidian-flavoured markdown (`[[wikilinks]]`), but they read fine 
 cd quiz-site
 python3 server.py --open      # http://localhost:8765, Python 3 only, no dependencies
 ```
-- Sets A–D, the M1 mini set, mock Sets E–H (40 Q / 60 min) and a shuffled Must-Remember drill (293 questions)
+- Sets A–D, the M1 mini set, mock Sets E–H (40 Q / 60 min), hard Good/Better/Best Sets I–J (30 Q / 60 min) and a shuffled Must-Remember drill (353 questions)
 - Pearson-style screen: timer, pause/resume, flag for review, review grid, strike-out
 - Exam mode (answers at the end) or Practice mode (check each answer as you go)
 - Score report with per-module breakdown, reasoning for every answer, and "retry missed"
