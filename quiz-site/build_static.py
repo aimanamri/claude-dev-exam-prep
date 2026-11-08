@@ -14,7 +14,7 @@ import shutil
 
 from server import ROOT, build_payload
 
-STATIC_FILES = ["index.html", "app.js", "parser.js", "style.css"]
+STATIC_FILES = ["index.html", "app.js", "parser.js", "style.css", "og-image.png"]
 
 
 def main():
