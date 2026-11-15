@@ -20,7 +20,7 @@
     {
       "path": "../00-mso-foundations-notes.md",
       "sets": {
-        "F": { "title": "M1 Mini Set", "secondsPerQuestion": 60, "modules": { "M1": "1-10" } }
+        "F": { "title": "M1 Mini Set", "code": "M1", "secondsPerQuestion": 60, "modules": { "M1": "1-10" } }
       }
     },
     { "path": "sets" }

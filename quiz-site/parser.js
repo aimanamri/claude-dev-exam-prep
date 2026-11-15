@@ -191,6 +191,7 @@
         Math.ceil((valid.length * (ov.secondsPerQuestion || meta.secondsPerQuestion || 0)) / 60) || null;
       return {
         key, prefix, title, file: file.file, fileName: file.name,
+        code: String(ov.code || (single && meta.code) || prefix),
         description: ov.description || (single && meta.description) || "",
         minutes, shuffle: ov.shuffle || (single && meta.shuffle) || false,
         tags: (single && meta.tags) ? String(meta.tags).split(/\s*,\s*/) : [],
