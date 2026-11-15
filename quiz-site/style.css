@@ -134,7 +134,7 @@ h1[tabindex="-1"]:focus, main[tabindex="-1"]:focus { outline: none; }
 .ubar-inner { max-width: 72rem; margin: 0 auto; height: 3.75rem; padding: 0 1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .brand { display: flex; align-items: center; gap: .6rem; color: var(--ink); text-decoration: none; font-size: 1rem; }
 .brand b { font-weight: 800; }
-.brand .logo { width: 2rem; height: 2rem; flex: none; }
+.brand .logo { width: 2rem; height: 2rem; flex: none; image-rendering: pixelated; }
 .ubar-right { display: flex; align-items: center; gap: .5rem; }
 .sys-pill { display: inline-flex; align-items: center; gap: .45rem; border: 1px solid var(--line); background: var(--canvas); color: var(--ink); border-radius: 999px; padding: .3rem .75rem; font: inherit; font-size: .8125rem; font-weight: 600; cursor: pointer; }
 .sys-pill .dot { width: .6rem; height: .6rem; border-radius: 50%; background: var(--success-fill); box-shadow: 0 0 0 2px var(--success-bg); }

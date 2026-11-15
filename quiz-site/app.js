@@ -90,7 +90,7 @@
   const examCode = (s) => "CCDVF-" + (s.code || s.prefix);
 
   const ICON = {
-    logo: `<svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="12" fill="#007FA3"/><circle cx="32" cy="35" r="17" fill="none" stroke="#fff" stroke-width="5"/><path d="M32 35V25" stroke="#FFB81C" stroke-width="5" stroke-linecap="round"/><rect x="26" y="8" width="12" height="6" rx="2" fill="#fff"/></svg>`,
+    logo: `<img class="logo" src="icons/icon-192.png" alt="" width="32" height="32">`,
     clock: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg>`,
     flag: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>`,
     grid: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>`,
@@ -948,4 +948,9 @@
 
   applyPrefs();
   load();
+
+  // Installable PWA + offline support (http(s) only; skipped for file:// previews).
+  if ("serviceWorker" in navigator && /^https?:$/.test(location.protocol)) {
+    window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => { /* offline support unavailable */ }));
+  }
 })();

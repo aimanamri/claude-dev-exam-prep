@@ -14,7 +14,8 @@ import shutil
 
 from server import ROOT, build_payload
 
-STATIC_FILES = ["index.html", "app.js", "parser.js", "style.css", "og-image.png"]
+STATIC_FILES = ["index.html", "app.js", "parser.js", "style.css", "og-image.png", "manifest.webmanifest", "sw.js"]
+STATIC_DIRS = ["icons"]
 
 
 def main():
@@ -25,6 +26,8 @@ def main():
     os.makedirs(out, exist_ok=True)
     for name in STATIC_FILES:
         shutil.copy2(os.path.join(ROOT, name), os.path.join(out, name))
+    for name in STATIC_DIRS:
+        shutil.copytree(os.path.join(ROOT, name), os.path.join(out, name), dirs_exist_ok=True)
     payload = build_payload()
     if payload["errors"]:
         raise SystemExit("Build failed:\n" + "\n".join(payload["errors"]))
